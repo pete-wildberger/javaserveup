@@ -3,11 +3,16 @@ console.log('JS is sourced');
 const ballRadius = 5;
 
 let canvas = document.getElementById('draw');
+let postBtn = document.getElementById('postButton');
+let inputed =document.getElementById('inputed');
 let ctx = canvas.getContext("2d");
 let x, y;
 let down = false;
 
 //listeners
+postBtn.addEventListener("click", function (){
+postName();
+}, false);
 canvas.addEventListener("mousedown", function (e){
   down = true;
 }, false);
@@ -32,4 +37,15 @@ function drawBall(x, y) {
   ctx.fillStyle = "#000000";
   ctx.fill();
   ctx.closePath();
+}
+function postName(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("response").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "/hello", true);
+  console.log(inputed.value, typeof inputed.value);
+  xhttp.send(inputed.value);
 }
