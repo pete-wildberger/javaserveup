@@ -42,8 +42,14 @@ function postName(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      console.log(this.readyState);
      document.getElementById("response").innerHTML = this.responseText;
-    }
+   } else if (this.readyState == 4 && this.status == 418){
+     console.log(this.readyState);
+     console.log(this.responseText);
+     document.getElementById("response").innerHTML = this.responseText;
+   }
+   console.log(this.readyState);
   };
   xhttp.open("POST", "/hello", true);
   console.log(inputed.value, typeof inputed.value);

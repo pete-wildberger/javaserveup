@@ -19,7 +19,7 @@ public class GreetingController {
         return "greeting";
     }
     @RequestMapping(value = "/hello", method = RequestMethod.POST)
-        public ResponseEntity < String > checkup(@RequestBody String name) {
+        public ResponseEntity < String > checkBody(@RequestBody String name) {
           String peter = "peter";
             if ( name == peter) {
               System.out.println(name);
@@ -28,7 +28,8 @@ public class GreetingController {
             } else {
             System.out.println(name);
             System.out.println(peter);
-            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
+            return new ResponseEntity<String>("Hello World", HttpStatus.I_AM_A_TEAPOT);
           }
         }
+
 }
