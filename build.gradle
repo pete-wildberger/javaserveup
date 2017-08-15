@@ -13,7 +13,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'gs-serving-web-content'
+    baseName = 'javaserveup'
     version =  '0.1.0'
 }
 
